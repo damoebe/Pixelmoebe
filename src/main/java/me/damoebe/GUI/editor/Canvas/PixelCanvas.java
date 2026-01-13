@@ -96,7 +96,7 @@ public class PixelCanvas extends Canvas implements MouseListener, MouseMotionLis
     }
 
     private BufferedImage getCombinedImage(List<Layer> hiddenLayers){
-        BufferedImage bufferedImage = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
+        BufferedImage bufferedImage = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
         for (int x = 0; x != width; x++){
 
             for (int y = 0; y != height; y++){
@@ -107,6 +107,10 @@ public class PixelCanvas extends Canvas implements MouseListener, MouseMotionLis
                     if (layer.isVisible() && !hiddenLayers.contains(layer)) {
                         if (layer.getRGB(x, y) != Color.decode("#00FFFFFF").getRGB()) {
                             pixelRGB = layer.getRGB(x, y);
+                        }else{
+                            if (!hiddenLayers.isEmpty()) {
+                                pixelRGB = 0x00000000;
+                            }
                         }
                     }
                 }

@@ -6,6 +6,7 @@ import me.damoebe.GUI.editor.Canvas.PixelCanvas;
 import me.damoebe.GUI.CreateMenu;
 import me.damoebe.GUI.EditMenu;
 import me.damoebe.GUI.Window;
+import me.damoebe.GUI.error.ErrorScreen;
 import me.damoebe.Main;
 
 import javax.imageio.ImageIO;
@@ -59,7 +60,7 @@ public class Editor implements Window {
     private void setupFrame(String name, int height, int width){
 
         frame.setTitle(name + " - Pixelmoebe");
-        frame.setIconImage(new ImageIcon(System.getProperty("user.dir") + "/src/main/java/me/damoebe/assets/flower.png").getImage());
+        frame.setIconImage(new ImageIcon(Main.assetPath + "/flower.png").getImage());
         frame.setLocationRelativeTo(null);
 
         frame.addWindowListener(new WindowAdapter() {
@@ -110,7 +111,7 @@ public class Editor implements Window {
         colorChooser.setBorder(new LineBorder(Color.GRAY));
         colorChooser.setPreferredSize(new Dimension(450, 200));
 
-        JButton addColor = new JButton(new ImageIcon(System.getProperty("user.dir") + "/src/main/java/me/damoebe/assets/plus.png"));
+        JButton addColor = new JButton(new ImageIcon(Main.assetPath + "/plus.png"));
         addColor.setContentAreaFilled(false);
         addColor.setPreferredSize(new Dimension(40, 40));
         addColor.addActionListener(_ ->{
@@ -145,7 +146,7 @@ public class Editor implements Window {
         toolChooser.setBorder(new LineBorder(Color.GRAY));
         toolChooser.setPreferredSize(new Dimension(450, 200));
 
-        JButton pen = new JButton(new ImageIcon(System.getProperty("user.dir") + "/src/main/java/me/damoebe/assets/pen.png"));
+        JButton pen = new JButton(new ImageIcon(Main.assetPath + "/pen.png"));
         pen.setContentAreaFilled(false);
         pen.setPreferredSize(new Dimension(40, 40));
         pen.addActionListener(_ -> {
@@ -153,7 +154,7 @@ public class Editor implements Window {
             this.canvas.setSelectedTool(Tool.PEN);
         });
 
-        JButton rubber = new JButton(new ImageIcon(System.getProperty("user.dir") + "/src/main/java/me/damoebe/assets/rubber.png"));
+        JButton rubber = new JButton(new ImageIcon(Main.assetPath + "/rubber.png"));
         rubber.setContentAreaFilled(false);
         rubber.setPreferredSize(new Dimension(40, 40));
         rubber.addActionListener(_ -> {
@@ -161,7 +162,7 @@ public class Editor implements Window {
             this.canvas.setSelectedTool(Tool.RUBBER);
         });
 
-        JButton colorPicker = new JButton(new ImageIcon(System.getProperty("user.dir") + "/src/main/java/me/damoebe/assets/color-picker.png"));
+        JButton colorPicker = new JButton(new ImageIcon(Main.assetPath + "/color-picker.png"));
         colorPicker.setContentAreaFilled(false);
         colorPicker.setPreferredSize(new Dimension(40, 40));
         colorPicker.addActionListener(_ -> {
@@ -289,7 +290,7 @@ public class Editor implements Window {
                 BufferedImage image =  ImageIO.read(new File(direction + "/layers/" + file.getName()));
                 layers.add(new Layer(image.getWidth(), image.getHeight(), file.getName(), image));
             } catch (IOException e) {
-                throw new RuntimeException(e);
+                new ErrorScreen(e.getMessage());
             }
         }
         canvas.setLayers(layers);
@@ -301,7 +302,8 @@ public class Editor implements Window {
             BufferedImage hello_image = ImageIO.read(new File(direction + "/layers/layer0.png"));
             return new Dimension(hello_image.getWidth(), hello_image.getHeight());
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            new ErrorScreen(e.getMessage());
+            return null;
         }
     }
 

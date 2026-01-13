@@ -1,6 +1,7 @@
 package me.damoebe.GUI;
 
 import me.damoebe.GUI.editor.Editor;
+import me.damoebe.GUI.error.ErrorScreen;
 import me.damoebe.GUI.error.ErrorType;
 import me.damoebe.Main;
 
@@ -19,7 +20,7 @@ public class CreateMenu implements Window{
 
         frame.setTitle("Create New File");
         frame.setResizable(false);
-        frame.setIconImage(new ImageIcon(System.getProperty("user.dir") + "/src/main/java/me/damoebe/assets/flower.png").getImage());
+        frame.setIconImage(new ImageIcon(Main.assetPath + "/flower.png").getImage());
         frame.setLayout(new BoxLayout(frame.getContentPane(), BoxLayout.Y_AXIS));
         addDecoration();
 
@@ -70,7 +71,9 @@ public class CreateMenu implements Window{
         JButton create = new JButton("Create");
         create.addActionListener(_ -> {
             if (getErrorType(name.getText(), height.getText(), width.getText(), direction.getText()).equals(ErrorType.NONE)) {
+
                 new Editor(direction.getText(), name.getText(), Integer.parseInt(height.getText()), Integer.parseInt(width.getText()));
+
                 close();
             }else{
                 errorMessage.setText(getErrorType(name.getText(), height.getText(), width.getText(), direction.getText()).getMessage());

@@ -12,7 +12,7 @@ public class EditMenu implements Window {
     public EditMenu() {
         frame = new JFrame();
         frame.setTitle("Edit File (Choose Project-Folder)");
-        frame.setIconImage(new ImageIcon(System.getProperty("user.dir") + "/src/main/java/me/damoebe/assets/flower.png").getImage());
+        frame.setIconImage(new ImageIcon(Main.assetPath + "/flower.png").getImage());
         frame.setResizable(false);
 
         addDecoration();
