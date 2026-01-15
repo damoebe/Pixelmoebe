@@ -4,6 +4,7 @@ Pixelmoebe is a simple Pixelart-editor made from scratch, only using the Java-Sw
 
 ## **[CLICK TO DOWNLOAD LATEST .EXE](https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/damoebe/Pixelmoebe/blob/master/pixelmoebe_V0.1.exe)**
 > [!IMPORTANT]
-> If you are planing to make real art and shi don't touch this!
+> The link above is sometimes **blocked by google**, you can still download the exe manually.\
+> If you are planing to make real art and shi don't touch this! 
 
 
