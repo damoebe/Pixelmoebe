@@ -6,6 +6,8 @@ import me.damoebe.GUI.MainMenu;
 import me.damoebe.GUI.editor.Editor;
 import me.damoebe.GUI.error.ErrorScreen;
 
+import javax.swing.*;
+import java.awt.*;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -39,8 +41,6 @@ public class Main{
         if (!assetPath.isDirectory()){
             AssetRetriever.setupAssets();
         }
-
-
         File properties = new File(System.getProperty("user.home") + "/Pixelmoebe/properties.json");
 
         if (properties.exists()){

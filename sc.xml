@@ -2,9 +2,9 @@
 <launch4jConfig>
   <dontWrapJar>false</dontWrapJar>
   <headerType>gui</headerType>
-  <jar>C:\Users\marti\Downloads\Pixelmoebe\target\Pixelmoebe-1.0-SNAPSHOT.jar</jar>
+  <jar>C:\Users\marti\Downloads\Pixelmoebe.jar</jar>
   <outfile>C:\Users\marti\Downloads\Pixelmoebe\pixelmoebe_V0.1.exe</outfile>
-  <errTitle></errTitle>
+  <errTitle>Pixelmoebe</errTitle>
   <cmdLine></cmdLine>
   <chdir>.</chdir>
   <priority>normal</priority>
