@@ -1,3 +1,4 @@
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/damoebe/Pixelmoebe)
 # Pixelmoebe
 
 Pixelmoebe is a simple Pixelart-editor made from scratch, only using the Java-Swing-Framework. It only contains basic functions such as a color-mixer, Layer and Version System. The only goal of Pixelmoebe is to demonstrate the simplicity of Java-App-Development. 
